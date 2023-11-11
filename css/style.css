@@ -1,0 +1,626 @@
+@charset "UTF-8";
+
+body{
+    width: 100vw;
+    background-color: black;
+    font-family: 'Raleway', sans-serif;
+}
+
+li{
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+img{
+    width: 100%;
+}
+
+section{
+    margin-bottom: 80px;
+    padding:20px;
+}
+.section-title{
+    background-color: #d9d9d9;
+    width: 230px;
+    height: 80px;
+    padding:10px 35px;
+    color:black;
+    text-align: center;
+    align-items: center;
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+.sub-title{
+    background-color: #d9d9d9;
+    width: 150px;
+    height: 50px;
+    padding:10px 35px;
+    color:black;
+    text-align: center;
+    align-items: center;
+    font-weight: bold;
+}
+
+/* Loading背景画面設定　*/
+#splash {
+    /*fixedで全面に固定*/
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 999;
+    background:black;
+    text-align:center;
+    color:#fff;
+    }
+    
+    /* Loading画像中央配置　*/
+    #splash_logo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    }
+    
+    /* Loading アイコンの大きさ設定　*/
+    #splash_logo img {
+    width:50vw;
+    object-fit: cover;
+    
+    }
+    
+    /* fadeUpをするアイコンの動き */
+    .fadeUp{
+    animation-name: fadeUpAnime;
+    animation-duration:0.5s;
+    animation-fill-mode:forwards;
+    opacity: 0;
+    }
+    
+    @keyframes fadeUpAnime{
+    from {
+        opacity: 0;
+    transform: translateY(100px);
+    }
+    
+    to {
+        opacity: 1;
+    transform: translateY(0);
+    }
+    }
+/* header */
+
+header{
+    width: 100vw;
+    height: auto;
+    position: relative;
+}
+
+header h1 img{
+    width: 100%;
+    object-fit: cover;
+}
+
+
+
+/* .hamburger */
+.hamburger{
+    width: 100px;
+    height: 100px;
+    background-color: black;
+    z-index: 20;
+    position: fixed;
+    top:0;
+    left:calc(100vw - 100px);
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.hamburger span{
+    width: 50px;
+    height: 2px;
+    position:absolute;
+    background-color: #fff;
+    left:25%;
+    transition: 0.3s;
+}
+
+.hamburger span:nth-child(1){
+    top: 36%;
+}
+
+.hamburger span:nth-child(2){
+    top:50%;
+}
+
+.hamburger span:nth-child(3){
+    top:64%;
+}
+
+
+.open .hamburger span:nth-child(1){
+    top: 50%;
+    transform: rotate(45deg);
+}
+
+.open .hamburger span:nth-child(2),
+.open .hamburger span:nth-child(3){
+    top: 50%;
+    transform:rotate(-45deg)
+}
+
+/* nav */
+#navi{
+    width: 100%;
+    height: 100vh;
+    background-color:black;
+    color: #fff;
+    position: fixed;
+    top: 0;
+    left:0;
+    text-align: center;
+    z-index: 20;
+    transition: all 0.6s ease;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.open #navi{
+    opacity: 0.8;
+    visibility: visible;
+}
+
+#navi .nav-menu{
+    margin:80px 0 40px; 
+}
+
+#navi .nav-menu li{
+    margin-bottom:20px;
+}
+
+#navi .nav-menu li a{
+    color:#fff;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+/* movie */
+
+#MOVIE .section-title{
+    margin-bottom:30px;
+}
+.slick-area{
+    margin: 0 auto;
+}
+
+.slick-area li{
+    padding: 0 10px;
+}
+
+.slick-area img{
+    width: 85%;
+    object-fit: cover;
+}
+
+.wrapper{
+    display: flex;
+    justify-content: space-between;
+}
+
+.wrapper .left-container{
+    width: 74%;
+}
+
+.wrapper .right-container{
+    width: 24%;
+}
+
+
+/* LIVE NEWS*/
+
+.live-list-item,.news-list-item{
+    border:1px solid #fff;
+    margin:20px 0;
+    width: 85%;
+    color: #fff;
+    align-items: center;
+    text-align: center;
+}
+
+.live-list-item.active,.news-list-item.active{
+    overflow-y: auto;
+}
+
+
+.live-top,.news-top{
+    display: flex;
+    justify-content: space-between;
+    transition: 0.5s;
+
+}
+
+.live-top:hover,.news-top:hover{
+    background-color: #d9d9d9;
+    color:black
+}
+
+
+.live-date,.news-date{
+    width: 25%;
+}
+
+.live-title,.news-title{
+    width: 75%;
+    border-left: 1px solid #fff;
+}
+
+
+.live-detail,.news-detail{
+    height: max-content;
+    padding: 0;
+    transition: 0.5s;
+    border:1px solid #fff;
+    background-color:black;
+    margin:0;
+    display:flex;
+    flex-wrap: wrap;
+}
+
+.live-detail dt,.news-detail dt{
+    width: 25%;
+    color: #fff;
+    border-bottom: 1px dotted #fff;
+    padding: 10px 0 10px 10px;
+}
+
+.live-detail dd,.news-detail dd{
+    width: 75%;
+    color: #fff;
+    border-left:1px solid #d9d9d9;
+    border-bottom: 1px dotted #fff;
+    padding: 10px 0 10px 10px;
+}
+
+.live-detail dd:last-child{
+    width: 100%;
+    border: none;
+}
+
+.live-detail dd a{
+    background-color: #d9d9d9;
+    width: 300px;
+    padding: 10px 100px;
+    color: black;
+
+}
+
+.accordion-box{
+    display: none;
+}
+
+
+
+
+/* LIVE accordion */
+
+.open .accordion-box{
+    display: block;
+    height: auto;
+    width: 100%;
+    padding: 0;
+}
+
+
+
+
+.schedule-list{
+    margin-top: 30px;
+    margin-right: 20px;
+    color:#fff;
+    border-top:1px solid #fff
+}
+
+.schedule-list dd{
+    border-bottom:1px solid #fff;
+    margin-bottom: 20px;
+}
+
+.schedule-list dd a{
+    color:#fff
+}
+
+/* instagram */
+
+#instagram .sub-title{
+    margin-bottom: 60px;
+}
+
+#instagram img{
+    width: 95%;
+    object-fit: cover;
+}
+/* release */
+
+.release-item{
+    margin: 30px 0 50px;
+}
+
+.release-list .flex{
+    display: flex;
+    justify-content: center;
+}
+
+.flex-left{
+    width: 38%; 
+    border: 1px solid #fff;
+}
+
+.flex-left img{
+    object-fit: cover;
+}
+
+
+.flex-right{
+    width: 38%;
+    color:#fff;
+    margin-left: 40px;
+    padding-top: 100px;
+}
+
+
+.flex-right p{
+    margin-bottom: 20px;
+    font-size: 1.25rem;
+}
+.flex-right p:last-child{
+    margin-bottom: 100px;
+}
+
+.flex-right .release-title {
+    font-size :1.5rem;
+    font-weight: bold;
+}
+
+.flex-right .btn{
+    margin-top: 100px;
+    display: inline-block;
+    background-color: #121212;
+    color: #fff;
+    border:1px solid #fff;
+    width: 75%;
+    height: 50px;
+    padding:10px;
+    transition: all 0.5s;
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+/* .flex-right .btn::after{
+    content: "";
+    width: 16px;
+    height: 16px;
+    border-top: solid 3px #fff;
+    border-right: solid 3px #fff;
+    transform: rotate(45deg);
+    position: absolute;
+    top: 26px;
+    right: 30px;
+} */
+
+.flex-right .btn:hover{
+    color: #121212;
+    background-color: #fff;
+}
+
+/* animation */
+
+#release .release-list .slide{
+    animation: slide 0.5s ease-out 0s 1 forwards;
+}
+
+@keyframes slide{
+    0%{
+        transform: translateX(-50%);
+    }
+
+    100%{
+        transform:translateX(0%);
+        opacity:1
+    }
+}
+
+/* spotify */
+
+#SPOTIFY .section-title{
+    margin-bottom: 50px;
+}
+
+#SPOTIFY a{
+    width: 100%;
+    display: inline-block;
+    text-align: center;
+    
+
+}
+
+#SPOTIFY a img{
+    
+    width: 70%;
+    border-radius: 50px;
+}
+
+/* footer */
+footer .sns-list{
+    margin: 0 auto;
+    width: 50%;
+    display: grid;
+    gap:20px;
+    grid-template-columns: repeat(4 , 1fr);
+    justify-content: space-between;
+}
+
+.sns-list li{
+    background-color: #d9d9d9;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    align-items: center;
+    text-align: center;
+    position: relative;
+}
+
+.sns-list li img{
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    top:25px;
+    left:25px;
+}
+
+/* scroll */
+
+.scroll-top {
+    /*表示位置*/
+    position: fixed;
+    right: 20px;
+    bottom: 10px;
+    z-index: 2;
+    /*はじめは非表示*/
+    opacity: 0;
+    visibility: hidden; 
+    transition: opacity .5s, visibility .5s; /*それぞれに0.5秒の変化のアニメーション*/
+    /*縦書き*/
+    -webkit-writing-mode: vertical-rl;
+    -ms-writing-mode: tb-rl;
+    writing-mode: vertical-rl;
+    /*改行禁止*/
+    white-space: nowrap;
+    /*矢印の動き*/
+    animation: arrowmove 1s ease-in-out infinite;
+}
+
+@keyframes arrowmove{
+    0%{bottom:20px;}
+    50%{bottom:25px;}
+    100%{bottom:20px;}
+}
+
+/*.scroll-viewクラスがついたら出現*/
+.scroll-top.scroll-view {
+    opacity: 1;
+    visibility: visible;
+}  
+/*リンク全体の aタグの形状*/
+.scroll-top a {
+    text-decoration: none;
+    color: #666;
+    text-transform: uppercase;
+    font-size:0.9rem;
+    display: block;
+}
+
+/*スクロールリンクの形状*/
+
+.js-scroll a::after{
+    content:"";
+    position: absolute;
+    top:0;
+    right:0;
+    width:1px;
+    height: 50px;
+    background:#666;
+}
+
+.js-scroll a::before {
+    content: "";
+    position: absolute;
+    top: 30px;
+    right: -6px;
+    width: 1px;
+    height: 20px;
+    background: #666;
+    transform: skewX(-31deg);
+}
+
+/*Edge IE11 hack*/
+_:-ms-lang(x), .js-scroll a::before{
+    right:-11px;
+}
+
+/*ページトップリンクの形状*/
+
+.js-pagetop a::after{
+    content:"";
+    position: absolute;
+    top:0;
+    right:0;
+    width:1px;
+    height: 50px;
+    background:#666;
+}
+
+.js-pagetop a::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: -6px;
+    width: 1px;
+    height: 20px;
+    background: #666;
+    transform: skewX(31deg);
+}
+
+/*Edge IE11 hack*/
+_:-ms-lang(x), .js-pagetop a::before{
+    right:0;
+}
+
+
+@media all and (max-width:768px){
+
+    header{
+        background-size: auto;
+    }
+    .hamburger{
+        width: 80px;
+        height: 80px;
+    }
+
+    .hamburger span{
+        width: 40px;
+    }
+
+    .wrapper .left-container{
+        width: 100%;
+    }
+
+    aside{
+        display:none;
+    }
+
+
+
+    .flex{
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .flex .flex-left,
+    .flex .flex-right{
+        margin: 0 auto;
+        width: 50%;
+    }
+
+    .flex .flex-right .btn{
+        margin: 0;
+    }
+
+    footer .sns-list{
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
